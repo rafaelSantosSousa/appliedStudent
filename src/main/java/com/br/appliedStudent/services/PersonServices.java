@@ -1,6 +1,6 @@
 package com.br.appliedStudent.services;
 
-import com.br.appliedStudent.dtos.PersonDto;
+import com.br.appliedStudent.data.PersonVO;
 import com.br.appliedStudent.exceptions.ResourceNotFoundException;
 import com.br.appliedStudent.mapper.DozerMapper;
 import com.br.appliedStudent.models.Person;
@@ -20,27 +20,27 @@ public class PersonServices {
     @Autowired
     PersonRepository repository;
 
-    public List<PersonDto> findAll(){
+    public List<PersonVO> findAll(){
         logger.info("Finding all people!");
-         return DozerMapper.parseListObjects(repository.findAll(), PersonDto.class);
+         return DozerMapper.parseListObjects(repository.findAll(), PersonVO.class);
     }
 
-    public PersonDto findById(Long id){
+    public PersonVO findById(Long id){
 
         logger.info("Finding one person!");
         var entity = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
-        return DozerMapper.parseObject(entity, PersonDto.class);
+        return DozerMapper.parseObject(entity, PersonVO.class);
     }
 
-    public PersonDto create(PersonDto person){
+    public PersonVO create(PersonVO person){
         logger.info("Creating one person");
         var entity = DozerMapper.parseObject(person,Person.class);
-        var vo = DozerMapper.parseObject (repository.save(entity),PersonDto.class);
+        var vo = DozerMapper.parseObject (repository.save(entity), PersonVO.class);
         return vo;
     }
 
-    public PersonDto update(PersonDto person){
+    public PersonVO update(PersonVO person){
         logger.info("Updating one person");
         var entity = repository.findById(person.getId())
                 .orElseThrow(()-> new ResourceNotFoundException("No records found for this ID!"));
@@ -50,7 +50,7 @@ public class PersonServices {
         entity.setAddress(person.getAddress());
         entity.setGender(person.getGender());
 
-        var vo = DozerMapper.parseObject (repository.save(entity),PersonDto.class);
+        var vo = DozerMapper.parseObject (repository.save(entity), PersonVO.class);
         return vo;
     }
 

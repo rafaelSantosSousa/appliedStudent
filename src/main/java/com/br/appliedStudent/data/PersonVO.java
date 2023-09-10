@@ -1,9 +1,5 @@
-package com.br.appliedStudent.dtos;
+package com.br.appliedStudent.data;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.*;
 
 import java.io.Serializable;
@@ -12,7 +8,7 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PersonDto implements Serializable {
+public class PersonVO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

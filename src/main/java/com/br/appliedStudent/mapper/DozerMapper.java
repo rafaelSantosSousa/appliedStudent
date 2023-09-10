@@ -1,13 +1,16 @@
 package com.br.appliedStudent.mapper;
 
-import com.github.dozermapper.core.DozerBeanMapperBuilder;
-import com.github.dozermapper.core.Mapper;
+//import com.github.dozermapper.core.DozerBeanMapperBuilder;
+//import com.github.dozermapper.core.Mapper;
+
+import org.modelmapper.ModelMapper;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DozerMapper{
-public static Mapper mapper = DozerBeanMapperBuilder.buildDefault();
+//public static Mapper mapper = DozerBeanMapperBuilder.buildDefault();
+public static ModelMapper mapper = new ModelMapper();
 public static <O,D> D parseObject(O origin, Class<D>destination){
        return mapper.map(origin,destination);
 }
