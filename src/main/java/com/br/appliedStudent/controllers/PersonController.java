@@ -1,6 +1,7 @@
 package com.br.appliedStudent.controllers;
 
 import com.br.appliedStudent.data.PersonVO;
+import com.br.appliedStudent.data.PersonVO2;
 import com.br.appliedStudent.services.PersonServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -23,6 +24,7 @@ public class PersonController {
     }
 
 
+
     @GetMapping (value = "/{id}",
     produces = MediaType.APPLICATION_JSON_VALUE)
     public PersonVO findById(@PathVariable(value="id")Long id) throws Exception {
@@ -35,6 +37,11 @@ public class PersonController {
         return service.create(person);
     }
 
+    @PostMapping(value = "/v2",consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public PersonVO2 createV2(@RequestBody PersonVO2 person) {
+        return service.createV2(person);
+    }
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE,
                 produces = MediaType.APPLICATION_JSON_VALUE)
     public PersonVO update(@RequestBody PersonVO person) {
