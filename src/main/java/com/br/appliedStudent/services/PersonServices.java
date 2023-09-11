@@ -1,7 +1,7 @@
 package com.br.appliedStudent.services;
 
-import com.br.appliedStudent.data.PersonVO;
-import com.br.appliedStudent.data.PersonVO2;
+import com.br.appliedStudent.data.vo.vo1.PersonVO;
+import com.br.appliedStudent.data.vo.vo2.PersonVO2;
 import com.br.appliedStudent.exceptions.ResourceNotFoundException;
 import com.br.appliedStudent.mapper.DozerMapper;
 import com.br.appliedStudent.mapper.custom.PersonMapper;
@@ -48,7 +48,7 @@ public class PersonServices {
 
     public PersonVO2 createV2(PersonVO2 person){
         logger.info("Creating one person with V2!");
-        var entity = mapper.convertEntityToVo2(person);
+        var entity = mapper.convertVoToEntity(person);
         var vo = mapper.convertEntityToVo(repository.save(entity));
         return vo;
     }

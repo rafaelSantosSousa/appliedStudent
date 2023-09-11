@@ -1,4 +1,4 @@
-package com.br.appliedStudent.data;
+package com.br.appliedStudent.data.vo.vo1;
 
 import lombok.*;
 

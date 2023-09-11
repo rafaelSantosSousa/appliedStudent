@@ -1,7 +1,7 @@
 package com.br.appliedStudent.controllers;
 
-import com.br.appliedStudent.data.PersonVO;
-import com.br.appliedStudent.data.PersonVO2;
+import com.br.appliedStudent.data.vo.vo1.PersonVO;
+import com.br.appliedStudent.data.vo.vo2.PersonVO2;
 import com.br.appliedStudent.services.PersonServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

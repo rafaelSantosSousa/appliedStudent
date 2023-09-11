@@ -1,6 +1,6 @@
 package com.br.appliedStudent.mapper.custom;
 
-import com.br.appliedStudent.data.PersonVO2;
+import com.br.appliedStudent.data.vo.vo2.PersonVO2;
 import com.br.appliedStudent.models.Person;
 import org.springframework.stereotype.Service;
 
@@ -22,16 +22,16 @@ public class PersonMapper {
 
     }
 
-    public Person convertEntityToVo2 (PersonVO2 person){
-        Person vo = new Person();
-        vo.setId(person.getId());
-        vo.setAddress(person.getAddress());
+    public Person convertVoToEntity (PersonVO2 person){
+        Person entity = new Person();
+        entity.setId(person.getId());
+        entity.setAddress(person.getAddress());
         //vo.setBirthDay(new Date());
-        vo.setFirstName(person.getFirstName());
-        vo.setLastName(person.getLastName());
-        vo.setGender(person.getGender());
+        entity.setFirstName(person.getFirstName());
+        entity.setLastName(person.getLastName());
+        entity.setGender(person.getGender());
 
-        return vo;
+        return entity;
     }
 
 
